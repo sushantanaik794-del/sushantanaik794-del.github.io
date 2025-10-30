@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sushanta Naik | GIS & Telecom Engineer</title>
+    <meta name="description"
+        content="Portfolio website of Sushanta Naik - Telecom Engineer, GIS Specialist, and Python Developer." />
+
+    <style>
+        :root {
+            --bg-color: #f3f4f6;
+            --text-color: #1f2937;
+            --card-bg: #ffffff;
+            --header-bg: #2563eb;
+            --contact-bg: #1e3a8a;
+            --btn-bg: #2563eb;
+            --btn-hover: #1e40af;
+            --skill-bg: #e5e7eb;
+        }
+
+        body.dark-mode {
+            --bg-color: #111827;
+            --text-color: #e5e7eb;
+            --card-bg: #1f2937;
+            --header-bg: #1e3a8a;
+            --contact-bg: #0f172a;
+            --btn-bg: #3b82f6;
+            --btn-hover: #60a5fa;
+            --skill-bg: #374151;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: var(--card-bg);
+            border: none;
+            border-radius: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background: var(--btn-hover);
+            color: white;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .about,
+        .skills,
+        .projects,
+        .gallery,
+        .resume-preview {
+            text-align: center;
+        }
+
+        .about img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--btn-bg);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 15px 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--btn-hover);
+            transform: scale(1.05);
+        }
+
+        /* ===== Skills ===== */
+        .skill {
+            margin: 15px 0;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            background: var(--skill-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            height: 14px;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: var(--btn-bg);
+            width: 0;
+            border-radius: 8px;
+            transition: width 2s ease-in-out;
+        }
+
+        /* ===== Projects ===== */
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s, background 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===== Gallery ===== */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            width: 250px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .gallery-item p {
+            padding: 10px;
+            font-weight: 500;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* ===== Resume Preview ===== */
+        .resume-preview iframe {
+            margin-top: 20px;
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        /* ===== Contact ===== */
+        .contact {
+            background-color: var(--contact-bg);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .contact a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            box-shadow: 0 0 5px var(--btn-bg);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            .project-card,
+            .gallery-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body onload="animateSkills()">
+
+    <!-- HEADER -->
+    <header>
+        <button class="toggle-btn" onclick="toggleMode()">🌙 Dark Mode</button>
+        <h1>Hi, I'm Sushanta Naik 👋</h1>
+        <p>Telecom Engineer | GIS Specialist | Python Developer</p>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="about">
+        <img src="images/surya.jpg" alt="Sushanta Naik Profile" />
+        <h2>About Me</h2>
+        <p>Experienced Telecom & GIS Engineer skilled in Python, geospatial mapping, and data automation. I design
+            efficient network solutions and intelligent mapping systems.</p>
+        <a href="Sushanta_Naik_AI_Based_Resume.pdf" download class="btn">📄 Download Resume</a>
+        <a href="#contact" class="btn">📞 Contact Me</a>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills">
+        <h2>My Skills</h2>
+        <div class="skill">
+            <p class="skill-name">📡 Telecom Engineering (ARAMIS FTTx/FTTP Design, O-Calc Pro Pole Loading)</p>
+            <div class="skill-bar">
+                <div class="skill-level" data-level="90"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <p class="skill-name">🗺️ GIS (QGIS, ArcGIS, AutoCAD, Mapping)</p>
+            <div class="skill-bar">
+                <div class="skill-level" data-level="85"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <p class="skill-name">🐍 Python Development</p>
+            <div class="skill-bar">
+                <div class="skill-level" data-level="80"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects">
+        <h2>My Projects</h2>
+        <div class="project-container">
+            <div class="project-card">
+                <h3>📶 Telecom Network Planner</h3>
+                <p>Designed fiber network layouts using GIS automation.</p>
+            </div>
+            <div class="project-card">
+                <h3>🗺️ GIS Mapping Tool</h3>
+                <p>Automated shapefile processing & map visualization.</p>
+            </div>
+            <div class="project-card">
+                <h3>🤖 Python Data Processor</h3>
+                <p>Built automation scripts for telecom data analytics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery">
+        <h2>🌟 Best Web Projects</h2>
+        <div class="gallery-container">
+            <div class="gallery-item"><img src="images/project1.jpg" alt="Telecom Dashboard">
+                <p>Telecom Dashboard</p>
+            </div>
+            <div class="gallery-item"><img src="images/project2.jpg" alt="GIS Visualization">
+                <p>GIS Visualization Tool</p>
+            </div>
+            <div class="gallery-item"><img src="images/project3.jpg" alt="Python Script UI">
+                <p>Python Script UI</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESUME PREVIEW -->
+    <section class="resume-preview">
+        <h2>📄 My Resume</h2>
+        <p>You can view my full resume below or download it.</p>
+        <iframe src="Sushanta_Naik_AI_Based_Resume.pdf"></iframe>
+        <a href="Sushanta_Naik_AI_Based_Resume.pdf" download class="btn">⬇️ Download Resume</a>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <h2>📬 Contact Me</h2>
+        <p>I'd love to connect! You can reach me through this form or my social links below.</p>
+
+        <form action="https://formsubmit.co/sushantanaik794@gmail.com" method="POST" class="contact-form">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New Message from Portfolio Website">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+
+        <p>📞 <a href="tel:+919178744794">+91 9178744794</a> | 📧 <a
+                href="mailto:sushantanaik794@gmail.com">sushantanaik794@gmail.com</a></p>
+        <p>🔗 <a href="https://www.linkedin.com/in/sushanta" target="_blank">LinkedIn</a> |
+            🐦 <a href="https://twitter.com/sushanta" target="_blank">Twitter</a> |
+            🌍 Odisha, India</p>
+    </section>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            body.classList.toggle("dark-mode");
+            const button = document.querySelector(".toggle-btn");
+            button.textContent = body.classList.contains("dark-mode")
+                ? "☀️ Light Mode" : "🌙 Dark Mode";
+        }
+
+        function animateSkills() {
+            document.querySelectorAll(".skill-level").forEach(skill => {
+                const level = skill.getAttribute("data-level");
+                setTimeout(() => { skill.style.width = level + "%"; }, 500);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
